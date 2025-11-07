@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  backend-service:
+    build:
+      context: ./backend-service
+    ports:
+      - "8081:8081"
+    networks:
+      - labnet
+
+  client-service:
+    build:
+      context: ./client-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backend-service
+    networks:
+      - labnet
+
+networks:
+  labnet:

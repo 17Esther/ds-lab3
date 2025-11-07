@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-service-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-service
+  template:
+    metadata:
+      labels:
+        app: backend-service
+    spec:
+      containers:
+      - name: backend-service
+        image: estherli17/backend-service:1.0.0
+        ports:
+        - containerPort: 8081
