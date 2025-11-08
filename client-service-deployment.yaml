@@ -14,6 +14,11 @@ spec:
     spec:
       containers:
       - name: client-service
-        image: estherli17/client-service:1.0.0
+        image: estherli17/client-service:1.0.2
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN

@@ -1,0 +1,2 @@
+NAME             ENDPOINTS        AGE
+client-service   10.1.0.21:8080   14h

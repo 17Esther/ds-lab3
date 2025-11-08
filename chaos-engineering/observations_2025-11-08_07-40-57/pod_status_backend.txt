@@ -1,0 +1,2 @@
+NAME                                          READY   STATUS    RESTARTS   AGE   IP          NODE             NOMINATED NODE   READINESS GATES
+backend-service-deployment-58c578f4ff-trxct   1/1     Running   0          9h    10.1.0.22   docker-desktop   <none>           <none>

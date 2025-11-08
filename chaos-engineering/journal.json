@@ -1,0 +1,250 @@
+{
+  "chaoslib-version": "1.44.0",
+  "platform": "macOS-15.3.1-arm64-arm-64bit",
+  "node": "Mac",
+  "experiment": {
+    "version": "1.0.0",
+    "title": "Network Partition: ClientService to BackendService",
+    "description": "Simulates a network partition that prevents communication between ClientService and BackendService pods. This tests how resilience patterns (retry, circuit breaker) handle network failures.",
+    "tags": [
+      "network",
+      "partition",
+      "resilience",
+      "kubernetes"
+    ],
+    "steady-state-hypothesis": {
+      "title": "Services are healthy and communicating",
+      "probes": [
+        {
+          "type": "probe",
+          "name": "backend-service-pod-is-running",
+          "tolerance": 0,
+          "provider": {
+            "type": "process",
+            "path": "sh",
+            "arguments": [
+              "-c",
+              "kubectl get pods -l app=backend-service -n default -o jsonpath='{.items[0].status.phase}' | grep -q Running"
+            ]
+          }
+        },
+        {
+          "type": "probe",
+          "name": "client-service-pod-is-running",
+          "tolerance": 0,
+          "provider": {
+            "type": "process",
+            "path": "sh",
+            "arguments": [
+              "-c",
+              "kubectl get pods -l app=client-service -n default -o jsonpath='{.items[0].status.phase}' | grep -q Running"
+            ]
+          }
+        }
+      ]
+    },
+    "method": [
+      {
+        "type": "action",
+        "name": "block-network-to-backend-service",
+        "provider": {
+          "type": "process",
+          "path": "sh",
+          "arguments": [
+            "-c",
+            "CLIENT_POD=$(kubectl get pods -l app=client-service -n default -o jsonpath='{.items[0].metadata.name}'); BACKEND_IP=$(kubectl get svc backend-service -n default -o jsonpath='{.spec.clusterIP}'); echo \"Blocking traffic from $CLIENT_POD to $BACKEND_IP\"; kubectl exec $CLIENT_POD -n default -- sh -c \"iptables -A OUTPUT -d $BACKEND_IP -j DROP\" 2>&1 || echo \"Note: iptables may require NET_ADMIN capability or pod may not exist\""
+          ]
+        },
+        "pauses": {
+          "after": 30
+        }
+      }
+    ],
+    "rollbacks": [
+      {
+        "type": "action",
+        "name": "restore-network-to-backend-service",
+        "provider": {
+          "type": "process",
+          "path": "sh",
+          "arguments": [
+            "-c",
+            "CLIENT_POD=$(kubectl get pods -l app=client-service -n default -o jsonpath='{.items[0].metadata.name}'); BACKEND_IP=$(kubectl get svc backend-service -n default -o jsonpath='{.spec.clusterIP}'); echo \"Restoring traffic from $CLIENT_POD to $BACKEND_IP\"; kubectl exec $CLIENT_POD -n default -- sh -c \"iptables -D OUTPUT -d $BACKEND_IP -j DROP\" 2>&1 || echo \"Rule removed or did not exist\""
+          ]
+        }
+      }
+    ],
+    "dry": null
+  },
+  "start": "2025-11-08T13:48:35.721268+00:00",
+  "status": "completed",
+  "deviated": false,
+  "steady_states": {
+    "before": {
+      "steady_state_met": true,
+      "probes": [
+        {
+          "activity": {
+            "type": "probe",
+            "name": "backend-service-pod-is-running",
+            "tolerance": 0,
+            "provider": {
+              "type": "process",
+              "path": "sh",
+              "arguments": [
+                "-c",
+                "kubectl get pods -l app=backend-service -n default -o jsonpath='{.items[0].status.phase}' | grep -q Running"
+              ]
+            }
+          },
+          "output": {
+            "status": 0,
+            "stdout": "",
+            "stderr": ""
+          },
+          "start": "2025-11-08T13:48:35.722032+00:00",
+          "status": "succeeded",
+          "end": "2025-11-08T13:48:35.982850+00:00",
+          "duration": 0.260818,
+          "tolerance_met": true
+        },
+        {
+          "activity": {
+            "type": "probe",
+            "name": "client-service-pod-is-running",
+            "tolerance": 0,
+            "provider": {
+              "type": "process",
+              "path": "sh",
+              "arguments": [
+                "-c",
+                "kubectl get pods -l app=client-service -n default -o jsonpath='{.items[0].status.phase}' | grep -q Running"
+              ]
+            }
+          },
+          "output": {
+            "status": 0,
+            "stdout": "",
+            "stderr": ""
+          },
+          "start": "2025-11-08T13:48:35.983041+00:00",
+          "status": "succeeded",
+          "end": "2025-11-08T13:48:36.023245+00:00",
+          "duration": 0.040204,
+          "tolerance_met": true
+        }
+      ]
+    },
+    "after": {
+      "steady_state_met": true,
+      "probes": [
+        {
+          "activity": {
+            "type": "probe",
+            "name": "backend-service-pod-is-running",
+            "tolerance": 0,
+            "provider": {
+              "type": "process",
+              "path": "sh",
+              "arguments": [
+                "-c",
+                "kubectl get pods -l app=backend-service -n default -o jsonpath='{.items[0].status.phase}' | grep -q Running"
+              ]
+            }
+          },
+          "output": {
+            "status": 0,
+            "stdout": "",
+            "stderr": ""
+          },
+          "start": "2025-11-08T13:49:06.272214+00:00",
+          "status": "succeeded",
+          "end": "2025-11-08T13:49:06.430666+00:00",
+          "duration": 0.158452,
+          "tolerance_met": true
+        },
+        {
+          "activity": {
+            "type": "probe",
+            "name": "client-service-pod-is-running",
+            "tolerance": 0,
+            "provider": {
+              "type": "process",
+              "path": "sh",
+              "arguments": [
+                "-c",
+                "kubectl get pods -l app=client-service -n default -o jsonpath='{.items[0].status.phase}' | grep -q Running"
+              ]
+            }
+          },
+          "output": {
+            "status": 0,
+            "stdout": "",
+            "stderr": ""
+          },
+          "start": "2025-11-08T13:49:06.430874+00:00",
+          "status": "succeeded",
+          "end": "2025-11-08T13:49:06.474870+00:00",
+          "duration": 0.043996,
+          "tolerance_met": true
+        }
+      ]
+    },
+    "during": []
+  },
+  "run": [
+    {
+      "activity": {
+        "type": "action",
+        "name": "block-network-to-backend-service",
+        "provider": {
+          "type": "process",
+          "path": "sh",
+          "arguments": [
+            "-c",
+            "CLIENT_POD=$(kubectl get pods -l app=client-service -n default -o jsonpath='{.items[0].metadata.name}'); BACKEND_IP=$(kubectl get svc backend-service -n default -o jsonpath='{.spec.clusterIP}'); echo \"Blocking traffic from $CLIENT_POD to $BACKEND_IP\"; kubectl exec $CLIENT_POD -n default -- sh -c \"iptables -A OUTPUT -d $BACKEND_IP -j DROP\" 2>&1 || echo \"Note: iptables may require NET_ADMIN capability or pod may not exist\""
+          ]
+        },
+        "pauses": {
+          "after": 30
+        }
+      },
+      "output": {
+        "status": 0,
+        "stdout": "Blocking traffic from client-service-deployment-575dc956db-7cl69 to 10.106.250.254\nsh: 1: iptables: not found\ncommand terminated with exit code 127\nNote: iptables may require NET_ADMIN capability or pod may not exist\n",
+        "stderr": ""
+      },
+      "start": "2025-11-08T13:48:36.023478+00:00",
+      "status": "succeeded",
+      "end": "2025-11-08T13:48:36.264542+00:00",
+      "duration": 0.241064
+    }
+  ],
+  "rollbacks": [
+    {
+      "activity": {
+        "type": "action",
+        "name": "restore-network-to-backend-service",
+        "provider": {
+          "type": "process",
+          "path": "sh",
+          "arguments": [
+            "-c",
+            "CLIENT_POD=$(kubectl get pods -l app=client-service -n default -o jsonpath='{.items[0].metadata.name}'); BACKEND_IP=$(kubectl get svc backend-service -n default -o jsonpath='{.spec.clusterIP}'); echo \"Restoring traffic from $CLIENT_POD to $BACKEND_IP\"; kubectl exec $CLIENT_POD -n default -- sh -c \"iptables -D OUTPUT -d $BACKEND_IP -j DROP\" 2>&1 || echo \"Rule removed or did not exist\""
+          ]
+        }
+      },
+      "output": {
+        "status": 0,
+        "stdout": "Restoring traffic from client-service-deployment-575dc956db-7cl69 to 10.106.250.254\nsh: 1: iptables: not found\ncommand terminated with exit code 127\nRule removed or did not exist\n",
+        "stderr": ""
+      },
+      "start": "2025-11-08T13:49:06.475127+00:00",
+      "status": "succeeded",
+      "end": "2025-11-08T13:49:06.674143+00:00",
+      "duration": 0.199016
+    }
+  ],
+  "end": "2025-11-08T13:49:06.674247+00:00",
+  "duration": 30.969966173171997
+}

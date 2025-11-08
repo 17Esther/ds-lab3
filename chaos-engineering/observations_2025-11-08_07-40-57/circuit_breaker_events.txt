@@ -1,0 +1,20 @@
+2025-11-08T07:35:48.524Z  WARN 1 --- [client-service] [ransitionThread] e.d.c.config.CircuitBreakerEventLogger   : CircuitBreaker 'backendCB' changed state: OPEN -> HALF_OPEN
+2025-11-08T07:35:56.526Z  WARN 1 --- [client-service] [        Timer-0] e.d.c.config.CircuitBreakerEventLogger   : CircuitBreaker 'backendCB' changed state: HALF_OPEN -> CLOSED
+2025-11-08T07:36:20.536Z  WARN 1 --- [client-service] [        Timer-0] e.d.c.config.CircuitBreakerEventLogger   : CircuitBreaker 'backendCB' changed state: CLOSED -> OPEN
+2025-11-08T07:36:23.535Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: CircuitBreaker 'backendCB' is OPEN and does not permit further calls
+2025-11-08T07:36:26.537Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: CircuitBreaker 'backendCB' is OPEN and does not permit further calls
+2025-11-08T07:36:29.538Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: CircuitBreaker 'backendCB' is OPEN and does not permit further calls
+2025-11-08T07:36:30.537Z  WARN 1 --- [client-service] [ransitionThread] e.d.c.config.CircuitBreakerEventLogger   : CircuitBreaker 'backendCB' changed state: OPEN -> HALF_OPEN
+2025-11-08T07:36:40.541Z  WARN 1 --- [client-service] [        Timer-0] e.d.c.config.CircuitBreakerEventLogger   : CircuitBreaker 'backendCB' changed state: HALF_OPEN -> CLOSED
+2025-11-08T07:37:44.570Z  WARN 1 --- [client-service] [        Timer-0] e.d.c.config.CircuitBreakerEventLogger   : CircuitBreaker 'backendCB' changed state: CLOSED -> OPEN
+2025-11-08T07:37:47.569Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: CircuitBreaker 'backendCB' is OPEN and does not permit further calls
+2025-11-08T07:37:50.570Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: CircuitBreaker 'backendCB' is OPEN and does not permit further calls
+2025-11-08T07:37:53.574Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: CircuitBreaker 'backendCB' is OPEN and does not permit further calls
+2025-11-08T07:37:54.572Z  WARN 1 --- [client-service] [ransitionThread] e.d.c.config.CircuitBreakerEventLogger   : CircuitBreaker 'backendCB' changed state: OPEN -> HALF_OPEN
+2025-11-08T07:38:04.583Z  WARN 1 --- [client-service] [        Timer-0] e.d.c.config.CircuitBreakerEventLogger   : CircuitBreaker 'backendCB' changed state: HALF_OPEN -> CLOSED
+2025-11-08T07:39:29.678Z  WARN 1 --- [client-service] [        Timer-0] e.d.c.config.CircuitBreakerEventLogger   : CircuitBreaker 'backendCB' changed state: CLOSED -> OPEN
+2025-11-08T07:39:32.675Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: CircuitBreaker 'backendCB' is OPEN and does not permit further calls
+2025-11-08T07:39:35.677Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: CircuitBreaker 'backendCB' is OPEN and does not permit further calls
+2025-11-08T07:39:38.679Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: CircuitBreaker 'backendCB' is OPEN and does not permit further calls
+2025-11-08T07:39:39.679Z  WARN 1 --- [client-service] [ransitionThread] e.d.c.config.CircuitBreakerEventLogger   : CircuitBreaker 'backendCB' changed state: OPEN -> HALF_OPEN
+2025-11-08T07:39:47.690Z  WARN 1 --- [client-service] [        Timer-0] e.d.c.config.CircuitBreakerEventLogger   : CircuitBreaker 'backendCB' changed state: HALF_OPEN -> CLOSED

@@ -1,0 +1,21 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2025-11-07T22:17:46.047Z  INFO 1 --- [backend-service] [           main] e.d.b.BackendServiceApplication          : Starting BackendServiceApplication using Java 17.0.16 with PID 1 (/app/app.jar started by root in /app)
+2025-11-07T22:17:46.049Z  INFO 1 --- [backend-service] [           main] e.d.b.BackendServiceApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-11-07T22:17:46.397Z  INFO 1 --- [backend-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-11-07T22:17:46.402Z  INFO 1 --- [backend-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-07T22:17:46.402Z  INFO 1 --- [backend-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-11-07T22:17:46.414Z  INFO 1 --- [backend-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-07T22:17:46.415Z  INFO 1 --- [backend-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 318 ms
+2025-11-07T22:17:46.594Z  INFO 1 --- [backend-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2025-11-07T22:17:46.605Z  INFO 1 --- [backend-service] [           main] e.d.b.BackendServiceApplication          : Started BackendServiceApplication in 0.699 seconds (process running for 0.886)
+2025-11-07T22:17:48.789Z  INFO 1 --- [backend-service] [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-07T22:17:48.789Z  INFO 1 --- [backend-service] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-07T22:17:48.790Z  INFO 1 --- [backend-service] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms

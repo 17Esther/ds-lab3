@@ -1,0 +1,46 @@
+# Alternative Network Partition Method using NetworkPolicy
+# This is a simpler alternative if Chaos Toolkit network partition doesn't work
+
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: block-backend-access
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      app: client-service
+  policyTypes:
+  - Egress
+  # Intentionally empty egress rules - this blocks ALL egress traffic
+  # We'll use a more targeted approach below
+
+---
+# More targeted: Block only traffic to backend-service
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: block-backend-service-access
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      app: client-service
+  policyTypes:
+  - Egress
+  egress:
+  # Allow DNS
+  - to:
+    - namespaceSelector: {}
+    ports:
+    - protocol: UDP
+      port: 53
+  # Allow all other traffic EXCEPT to backend-service
+  # Note: Kubernetes NetworkPolicy doesn't support "deny" rules directly
+  # This approach allows everything except we'll use a different method
+
+---
+# Better approach: Use a NetworkPolicy that only allows specific traffic
+# and excludes backend-service
+# Note: This requires careful configuration based on your cluster setup
+

@@ -1,0 +1,20 @@
+2025-11-08T07:37:59.582Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: 429 : "Rate limit exceeded - transient failure"
+2025-11-08T07:38:20.602Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: 500 : "Simulated transient backend failure"
+2025-11-08T07:38:26.603Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: 429 : "Rate limit exceeded - transient failure"
+2025-11-08T07:38:41.619Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: 429 : "Rate limit exceeded - transient failure"
+2025-11-08T07:38:56.645Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: 429 : "Rate limit exceeded - transient failure"
+2025-11-08T07:39:05.655Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: 500 : "Simulated transient backend failure"
+2025-11-08T07:39:08.668Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: 500 : "Simulated transient backend failure"
+2025-11-08T07:39:14.659Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: 429 : "Rate limit exceeded - transient failure"
+2025-11-08T07:39:26.673Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: 500 : "Simulated transient backend failure"
+2025-11-08T07:39:29.678Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: 429 : "Rate limit exceeded - transient failure"
+2025-11-08T07:39:32.675Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: CircuitBreaker 'backendCB' is OPEN and does not permit further calls
+2025-11-08T07:39:35.677Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: CircuitBreaker 'backendCB' is OPEN and does not permit further calls
+2025-11-08T07:39:38.679Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: CircuitBreaker 'backendCB' is OPEN and does not permit further calls
+2025-11-08T07:39:44.687Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: 429 : "Rate limit exceeded - transient failure"
+2025-11-08T07:40:08.709Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: 500 : "Simulated transient backend failure"
+2025-11-08T07:40:11.711Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: 429 : "Rate limit exceeded - transient failure"
+2025-11-08T07:40:17.710Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: 429 : "Rate limit exceeded - transient failure"
+2025-11-08T07:40:32.718Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: 500 : "Simulated transient backend failure"
+2025-11-08T07:40:47.736Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: 429 : "Rate limit exceeded - transient failure"
+2025-11-08T07:40:50.738Z  INFO 1 --- [client-service] [        Timer-0] e.d.clientservice.service.BackendCaller  : Response: Fallback response due to error: 500 : "Simulated transient backend failure"

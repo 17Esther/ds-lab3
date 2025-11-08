@@ -1,0 +1,23 @@
+---
+# Chaos Toolkit Configuration
+# This file configures Chaos Toolkit to work with your Kubernetes cluster
+
+auths:
+  # Kubernetes authentication
+  # If running locally with kubectl configured, this will use your existing context
+  kubernetes:
+    type: "k8s"
+    # Leave empty to use default kubeconfig
+    # Or specify: kubeconfig_path: "/path/to/kubeconfig"
+
+controls:
+  # Logging configuration
+  logging:
+    level: INFO
+    format: "json"  # Use "json" for structured logs or "text" for human-readable
+
+  # Global settings
+  global:
+    dry: false  # Set to true for dry-run mode
+    no_rollbacks: false  # Set to true to skip rollbacks (dangerous!)
+

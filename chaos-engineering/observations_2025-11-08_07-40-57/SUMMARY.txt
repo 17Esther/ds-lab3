@@ -1,0 +1,32 @@
+==========================================
+CHAOS EXPERIMENT OBSERVATION SUMMARY
+==========================================
+Timestamp: Sat Nov  8 07:40:58 GMT 2025
+Observation Directory: observations_2025-11-08_07-40-57
+
+POD INFORMATION:
+- Client Service Pod: client-service-deployment-6c657966db-v6vg2
+- Backend Service Pod: backend-service-deployment-58c578f4ff-trxct
+
+METRICS COLLECTED:
+- Retry Attempts: 0
+0
+- Circuit Breaker Transitions: 761
+- Fallback Responses: 2333
+
+FILES GENERATED:
+1. pod_status_*.txt - Pod status information
+2. endpoints_*.txt - Service endpoint information
+3. *_logs_recent.txt - Recent service logs
+4. retry_events.txt - Retry attempt logs
+5. circuit_breaker_events.txt - Circuit breaker state transitions
+6. fallback_responses.txt - Fallback response logs
+7. network_policies.yaml - Network policy configuration
+
+NEXT STEPS:
+1. Review the logs in this directory
+2. Analyze retry patterns and delays
+3. Observe circuit breaker state transitions
+4. Compare behavior with baseline (no resilience patterns)
+5. Document findings in analysis template
+
